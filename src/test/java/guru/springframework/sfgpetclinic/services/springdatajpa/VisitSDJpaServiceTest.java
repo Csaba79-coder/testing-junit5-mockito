@@ -2,6 +2,7 @@ package guru.springframework.sfgpetclinic.services.springdatajpa;
 
 import guru.springframework.sfgpetclinic.model.Visit;
 import guru.springframework.sfgpetclinic.repositories.VisitRepository;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -28,6 +29,7 @@ class VisitSDJpaServiceTest {
     @InjectMocks
     VisitSDJpaService service;
 
+    @DisplayName("Test find all visits")
     @Test
     void findAll() {
         Visit visit = new Visit();
@@ -44,6 +46,7 @@ class VisitSDJpaServiceTest {
         assertThat(foundVisits).hasSize(1);
     }
 
+    @DisplayName("Test visit's find by ID")
     @Test
     void findById() {
         Visit visit = new Visit();
@@ -57,6 +60,7 @@ class VisitSDJpaServiceTest {
         assertThat(foundVisit).isNotNull();
     }
 
+    @DisplayName("Test save visits")
     @Test
     void save() {
         Visit visit = new Visit();
@@ -70,6 +74,7 @@ class VisitSDJpaServiceTest {
         assertThat(savedVisit).isNotNull();
     }
 
+    @DisplayName("Test delete all visits")
     @Test
     void delete() {
         Visit visit = new Visit();
@@ -79,6 +84,7 @@ class VisitSDJpaServiceTest {
         verify(visitRepository).delete(any(Visit.class));
     }
 
+    @DisplayName("Test visits delete by ID")
     @Test
     void deleteById() {
         Visit visit = new Visit();
